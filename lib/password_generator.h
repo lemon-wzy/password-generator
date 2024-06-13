@@ -9,11 +9,17 @@
 #include <string>
 #include <cstdio>
 #include <cstdlib>
-#include <unistd.h>
+//#include <unistd.h>
 #include <random>
 #include <ctime>
 #include <algorithm>
 #include "common_lib.h"
+#ifdef _WIN32
+#include <io.h>
+#define access _access
+#else
+#include <unistd.h>
+#endif
 
 //默认值枚举类
 enum class DEFAULT_VALUE {
