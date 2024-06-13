@@ -16,6 +16,7 @@
 #include "common_lib.h"
 #ifdef _WIN32
 #include <io.h>
+#include <getopt.h>
 #define access _access
 #else
 #include <unistd.h>
