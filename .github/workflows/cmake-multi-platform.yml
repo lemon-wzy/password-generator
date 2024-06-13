@@ -36,6 +36,10 @@ jobs:
         exclude:
           - os: ubuntu-latest
             c_compiler: cl
+          - os: windows-latest
+            c_compiler: gcc
+          - os: windows-latest
+            c_compiler: clang
 
     steps:
     - uses: actions/checkout@v4
