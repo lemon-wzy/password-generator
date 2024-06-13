@@ -11,4 +11,4 @@
     -t: how manay passwords to generate     default: 5
     
 ### example:
-    ![example](./img.png) 
+<img src="./img.png">
