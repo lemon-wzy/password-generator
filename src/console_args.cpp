@@ -6,37 +6,37 @@
 #include "../lib/password_generator.h"
 
 
-int console_args::get_length() const {
+auto console_args::get_length() const -> int {
     return length;
 }
 
-int console_args::get_upper() const {
+auto console_args::get_upper() const -> int {
     return upper;
 }
 
-int console_args::get_lower() const {
+auto console_args::get_lower() const -> int {
     return lower;
 }
 
-int console_args::get_number() const {
+auto console_args::get_number() const -> int {
     return number;
 }
 
-int console_args::get_special() const {
+auto console_args::get_special() const -> int {
     return special;
 }
 
-int console_args::get_argc() const {
+auto console_args::get_argc() const -> int {
     return argc;
 }
 
 
 
-char **console_args::get_argv() const {
+auto console_args::get_argv() const -> char ** {
     return argv;
 }
 
-int console_args::get_total() const {
+auto console_args::get_total() const -> int {
     return total;
 }
 

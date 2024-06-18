@@ -13,7 +13,7 @@
  * @param special       特殊字符个数
  * @return             生成的密码
  */
-std::string generate_password(int length, int upper, int lower, int number, int special) {
+auto generate_password(int length, int upper, int lower, int number, int special) -> std::string {
     std::string password;
     // 生成大写字母
     if (upper > static_cast<int>(DEFAULT_VALUE::ZERO)) {
@@ -40,10 +40,29 @@ std::string generate_password(int length, int upper, int lower, int number, int 
             password += SPECIAL_CHARACTER[rand_num() % (sizeof(SPECIAL_CHARACTER) / sizeof(char))];
         }
     }
+    std::string surplusChars;
+    if (upper == static_cast<int>(DEFAULT_VALUE::ZERO)) {
+        surplusChars += UPPERCASE_LETTER;
+    }
+    if (lower == static_cast<int>(DEFAULT_VALUE::ZERO)) {
+        surplusChars += LOWERCASE_LETTER;
+    }
+    if (number == static_cast<int>(DEFAULT_VALUE::ZERO)) {
+        surplusChars += NUMBER;
+    }
+    if (special == static_cast<int>(DEFAULT_VALUE::ZERO)) {
+        surplusChars += SPECIAL_CHARACTER;
+    }
+    if (surplusChars.size() > static_cast<int>(DEFAULT_VALUE::ZERO)) {
+        for (auto i = static_cast<int>(DEFAULT_VALUE::ZERO); i < length - (upper + lower + number + special); i++) {
+            password  += surplusChars[rand_num() % surplusChars.size()];
+        }
+
+    }
 
     // 生成剩余位数
-    if (upper + lower + number + special < length) {
-        for (auto i = static_cast<int>(DEFAULT_VALUE::ZERO); i < length - (upper + lower + number + special); i++) {
+    if (password.size() < length) {
+        for (auto i = static_cast<int>(DEFAULT_VALUE::ZERO); i < length - password.size(); i++) {
             password  += ALL_CHARACTERS[rand_num() % (sizeof(ALL_CHARACTERS) / sizeof(char))];
         }
     }
@@ -57,7 +76,7 @@ std::string generate_password(int length, int upper, int lower, int number, int 
  * @param length
  * @return
  */
-std::string generate_password(int length) {
+auto generate_password(int length) -> std::string {
     return generate_password(length, static_cast<int>(DEFAULT_VALUE::ZERO),
                              static_cast<int>(DEFAULT_VALUE::ZERO),
                              static_cast<int>(DEFAULT_VALUE::ZERO),
@@ -80,7 +99,7 @@ std::string generate_password() {
  * 随机生成一个整数
  * @return int
  */
-int rand_num() {
+auto rand_num() -> int {
     std::mt19937 rng(std::random_device{}());
     return rng();
 }

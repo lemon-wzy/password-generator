@@ -52,13 +52,13 @@ const static char ALL_CHARACTERS[] = {LOWERCASE_LETTERS, UPPERCASE_LETTERS, NUMB
  * @param special
  * @return
  */
-std::string generate_password(int length, int upper, int lower, int number, int special);
+auto generate_password(int length, int upper, int lower, int number, int special) -> std::string;
 /**
  * 生成密码
  * @param length
  * @return
  */
-std::string generate_password(int length);
+auto generate_password(int length) -> std::string;
 /**
  * 生成密码
  * @return
@@ -70,5 +70,5 @@ void init_args(int argc, char **argv, int *length, int *upper, int *lower, int *
  * 产生一个随机数
  * @return
  */
-int rand_num();
+auto rand_num() -> int;
 #endif //PASSWORD_GENERATOR_PASSWORD_GENERATOR_H

@@ -26,14 +26,14 @@ private:
     char **argv;
 
 public:
-    int get_length() const;
-    int get_upper() const;
-    int get_lower() const;
-    int get_number() const;
-    int get_special() const;
-    int get_argc() const;
-    int get_total() const;
-    char **get_argv() const;
+    [[nodiscard]] auto get_length() const -> int;
+    [[nodiscard]] auto get_upper() const -> int;
+    [[nodiscard]] auto get_lower() const -> int;
+    [[nodiscard]] auto get_number() const -> int;
+    [[nodiscard]] auto get_special() const -> int;
+    [[nodiscard]] auto get_argc() const -> int;
+    [[nodiscard]] auto get_total() const -> int;
+    [[nodiscard]] auto get_argv() const -> char **;
     void set_length(int length);
     void set_upper(int upper);
     void set_lower(int lower);
